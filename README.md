@@ -1,5 +1,6 @@
-# First game in Godot
-Project files for our video on making your first game in Godot.
+# CoderDojo Schöneweide - Godot project
+
+Based on [Brackey first game in Godot.](https://github.com/Brackeys/first-game-in-godot), only slightly modified.
 
 Check out the videos on the [Brackeys YouTube Channel](http://youtube.com/brackeys).
 
