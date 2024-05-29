@@ -1,0 +1,126 @@
+[gd_scene load_steps=18 format=3 uid="uid://dbjmjt6wkhgih"]
+
+[ext_resource type="Texture2D" uid="uid://bucus3y8y0fip" path="res://assets/sprites/gob master sml.png" id="1_jcuos"]
+[ext_resource type="Script" path="res://scripts/goblin.gd" id="1_lhxc8"]
+[ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="3_e41am"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_035kh"]
+atlas = ExtResource("1_jcuos")
+region = Rect2(0, 1500, 300, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6e6a"]
+atlas = ExtResource("1_jcuos")
+region = Rect2(300, 1500, 300, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r766a"]
+atlas = ExtResource("1_jcuos")
+region = Rect2(600, 1500, 300, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abe04"]
+atlas = ExtResource("1_jcuos")
+region = Rect2(900, 1500, 300, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxho6"]
+atlas = ExtResource("1_jcuos")
+region = Rect2(1200, 1500, 300, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyg0v"]
+atlas = ExtResource("1_jcuos")
+region = Rect2(1500, 1500, 300, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mion"]
+atlas = ExtResource("1_jcuos")
+region = Rect2(1800, 1500, 300, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m16kp"]
+atlas = ExtResource("1_jcuos")
+region = Rect2(2100, 1500, 300, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu3ox"]
+atlas = ExtResource("1_jcuos")
+region = Rect2(2400, 1500, 300, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cows"]
+atlas = ExtResource("1_jcuos")
+region = Rect2(2700, 1500, 300, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fae2e"]
+atlas = ExtResource("1_jcuos")
+region = Rect2(3000, 1500, 300, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrlju"]
+atlas = ExtResource("1_jcuos")
+region = Rect2(3300, 1500, 300, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ur4u6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_035kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6e6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r766a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abe04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxho6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyg0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mion")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m16kp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu3ox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cows")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fae2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrlju")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ele1v"]
+radius = 7.0
+height = 18.0
+
+[node name="Goblin" type="Node2D"]
+script = ExtResource("1_lhxc8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_ur4u6")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.554832
+
+[node name="Killzone" parent="." instance=ExtResource("3_e41am")]
+position = Vector2(-2, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_ele1v")
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(-2, 5)
+target_position = Vector2(-7, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(-1, 5)
+target_position = Vector2(6, 0)
