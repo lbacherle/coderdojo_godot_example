@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -300.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@onready var ray_cast_down = $RayCast2D
 @onready var animated_sprite = $AnimatedSprite2D
 
 func _physics_process(delta):
@@ -35,6 +36,17 @@ func _physics_process(delta):
 			animated_sprite.play("run")
 	else:
 		animated_sprite.play("jump")
+
+	if ray_cast_down.is_colliding():    
+		var collider = ray_cast_down.get_collider()
+		print(collider)
+		if collider != null:
+			if collider is Slime:
+				print("hallo")
+				collider.queue_free()
+			elif collider is Goblin:
+				print("hallo")
+				collider.queue_free()
 	
 	# Apply movement
 	if direction:

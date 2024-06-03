@@ -36,27 +36,26 @@ animations = [{
 "texture": SubResource("AtlasTexture_1a8la")
 }],
 "loop": true,
-"name": &"default",
+"name": &"run",
 "speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4xjq"]
-size = Vector2(10, 14)
+size = Vector2(10, 12)
 
-[node name="Slime" type="Node2D"]
+[node name="Slime" type="CharacterBody2D"]
 script = ExtResource("1_fxbww")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_a8uf2")
-autoplay = "default"
-frame = 2
-frame_progress = 0.722655
+animation = &"run"
+autoplay = "run"
 
 [node name="Killzone" parent="." instance=ExtResource("2_aiwyj")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, -7)
+position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_u4xjq")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
@@ -68,9 +67,13 @@ position = Vector2(0, -7)
 target_position = Vector2(-9, 0)
 
 [node name="RayCastDownLeft" type="RayCast2D" parent="."]
-position = Vector2(-7, 0)
-target_position = Vector2(0, 9)
+position = Vector2(-7, -9)
+target_position = Vector2(0, 12)
 
 [node name="RayCastDownRight" type="RayCast2D" parent="."]
-position = Vector2(7, 0)
-target_position = Vector2(0, 9)
+position = Vector2(7, -9)
+target_position = Vector2(0, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_u4xjq")

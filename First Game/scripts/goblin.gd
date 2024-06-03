@@ -1,3 +1,4 @@
+class_name Goblin
 extends Node2D
 
 const SPEED = 30
