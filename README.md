@@ -1,6 +1,6 @@
 # CoderDojo Schöneweide - Godot project
 
-Based on [Brackey first game in Godot.](https://github.com/Brackeys/first-game-in-godot), only slightly modified.
+Based on [Brackeys first game in Godot](https://github.com/Brackeys/first-game-in-godot), slightly modified by me and my little brother.
 
 Check out the videos on the [Brackeys YouTube Channel](http://youtube.com/brackeys).
 
